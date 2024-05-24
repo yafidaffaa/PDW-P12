@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scrip.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <title>DOM Javascript</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: 'Radio Canada', sans-serif;
+        }
+        .phone-container {
+            width: 375px;
+            height: 667px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 30px;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        .phone-container::before, .phone-container::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+        }
+        .phone-container::before {
+            top: -20px;
+            width: 60px;
+            height: 5px;
+            border-radius: 10px;
+        }
+        .phone-container::after {
+            bottom: -20px;
+            width: 60px;
+            height: 5px;
+            border-radius: 10px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+            overflow-y: auto;
+            padding-top: 20px; 
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+        input, textarea, select, button {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .head {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .peminatan-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .peminatan-container input {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <div class="container">
+            <div class="head">
+                <h3>Pendaftaran Peminatan</h3>
+            </div>
+            <form id="pendaftaranForm" onsubmit="return kirimData()">
+                <label for="nama" style="font-weight: bold;">Nama</label>
+                <input type="text" placeholder="Nama anda" id="nama" required>
+                <label for="nim" style="font-weight: bold;">NIM</label>
+                <input type="text" placeholder="NIM anda" id="nim" required>
+                <p>Peminatan pada bidang:</p>
+                <div class="peminatan-container">
+                    <div>
+                        <input type="radio" name="peminatan" id="programing" value="programing" required>
+                        <label for="programing">Programing</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="peminatan" id="desain" value="desain">
+                        <label for="desain">Desain</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="peminatan" id="jaringan" value="jaringan">
+                        <label for="jaringan">Jaringan</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="peminatan" id="data" value="data">
+                        <label for="data">Data</label>
+                    </div>
+                </div>
+                <label for="angkatan" style="font-weight: bold;">Angkatan</label>
+                <select name="angkatan" id="angkatan" style="height: 50px;">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                </select>
+                <label for="tanggal" style="font-weight: bold;">Tanggal</label>
+                <input type="text" id="tanggal">
+                <label for="alamat" style="font-weight: bold;">Alamat</label>
+                <textarea placeholder="Tulis alamatmu disini" id="alamat" cols="30" rows="5"></textarea>
+                <button type="submit">Kirim</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
+</body>
+</html>
